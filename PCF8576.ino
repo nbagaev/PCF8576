@@ -22,7 +22,7 @@
 
 void setChar(uint8_t chr,uint8_t pos)
 {
-  if(((pos>-1) && (pos<8))&&((chr > 31)&&(chr < 127)))
+  if(((pos>-1)&&(pos<8))&&((chr>31)&&(chr<127)))
   {
     uint8_t data_pointer=pos*4;
     uint8_t char_pos=chr-32;
