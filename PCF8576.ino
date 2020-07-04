@@ -1,4 +1,4 @@
-// Test sketch for Philips PCF8576C and 8 Digit 16 Segment LCD from car radio
+// arduino test sketch for Philips PCF8576C and 8 Digit 16 Segment LCD from car radio
 
 #include <Wire.h>
 #include "font.h"
