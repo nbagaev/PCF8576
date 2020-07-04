@@ -1,4 +1,4 @@
-# PCF8576
-Arduino test sketch for Philips PCF8576C
+# PCF8576C
+Arduino test sketch for Philips PCF8576CT
 
 ![lcd.jpg](lcd.jpg)
