@@ -5,19 +5,19 @@
 
 //PCF8576C pins
 
-//A0->Vdd A1->Vss A2->Vss => device adress 001
+//A0->Vdd A1->Vss A2->Vss => device address 001
 
-//SA0->Vss => I2C bus slave adress B0111000
+//SA0->Vss => I2C bus slave address B0111000
 
 //OSC->Vss => internal clock
 
 //BP0,BP1,BP2,BP3->LCD => four backplanes, multiplex drive mode 1:4, bias 1/3
 
-#define bus_slave_adress B0111000 //I2C bus slave adress  (011100) (SA0)
+#define bus_slave_address B0111000 //I2C bus slave address  (011100) (SA0)
                                   //                      (011100)  (0)
 #define mode B11001000  //mode set (command)(fixed value)(power-saving mode)(enable)(bias)(multiplex drive mode)
                         //            (1)        (10)             (0)          (1)    (0)         (00)
-#define device_adress B11100001  //device adress (command)(fixed value)(A2 A1 A0)
+#define device_address B11100001  //device address (command)(fixed value)(A2 A1 A0)
                                  //                  (1)      (1100)      (001)
 
 void setChar(uint8_t chr,uint8_t pos)
@@ -27,8 +27,8 @@ void setChar(uint8_t chr,uint8_t pos)
     uint8_t data_pointer=pos*4;
     uint8_t char_pos=chr-32;
     
-    Wire.beginTransmission(bus_slave_adress);
-    Wire.write(device_adress); 
+    Wire.beginTransmission(bus_slave_address);
+    Wire.write(device_address); 
   
     Wire.write(data_pointer);    
 
@@ -43,8 +43,8 @@ void allSegmentsOn(bool on)
 {
   uint8_t data;
   uint8_t data_pointer=B00000000;
-  Wire.beginTransmission(bus_slave_adress);
-  Wire.write(device_adress);   
+  Wire.beginTransmission(bus_slave_address);
+  Wire.write(device_address);   
   Wire.write(data_pointer);
   if(on)
     data=B11111111;
@@ -61,7 +61,7 @@ void allSegmentsOn(bool on)
 void initLCD()
 {
   Wire.begin();
-  Wire.beginTransmission(bus_slave_adress);   
+  Wire.beginTransmission(bus_slave_address);   
   Wire.write(mode);  
   Wire.endTransmission();
 }
